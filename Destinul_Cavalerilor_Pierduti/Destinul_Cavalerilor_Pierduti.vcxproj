@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Destinul_Cavalerilor_Pierduti.cpp" />
+    <ClCompile Include="caracter.cpp" />
+    <ClCompile Include="loadStory.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="storyNode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="caracter.h" />
+    <ClInclude Include="loadStory.h" />
+    <ClInclude Include="storyNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
