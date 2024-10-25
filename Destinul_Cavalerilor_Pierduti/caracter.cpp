@@ -3,12 +3,22 @@
 
 caracter::caracter()
 {
-	life = 100;
-	gold = 0;
-	damage = 10;
+	this->hp = 100;
+	this->gold = 0;
+	this->damage = 10;
+}
+\
+void caracter::setHp(int hp)
+{
+	this->hp = hp;
 }
 
-void caracter::loseLife(int dmg)
+void caracter::loseHp(int dmg)
 {
-	life -= dmg;
+	this->hp -= dmg;
+}
+
+void caracter::addGold(int gold)
+{
+	this->gold += gold;
 }

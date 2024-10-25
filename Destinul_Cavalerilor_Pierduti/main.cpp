@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <ctime> // temp
 #include "storyNode.h"
 #include "loadStory.h"
 using namespace std;
@@ -32,7 +33,27 @@ int main()
 	}*/
 
 
-	storyNode* currentNode = new storyNode();
+
+	int viataPlayer = 100;
+	int viataInamic = 100;
+	string s = "";
+	s += "Your HP: " + to_string(viataPlayer) + "												Enemy HP: " + to_string(viataInamic);
+	cout << s << endl << endl;
+	s = "Choose your attack:\n1. Rock\n2. Paper\n3. Scissors\nChoose an option: ";
+	cout << s;
+	int choice;
+	cin >> choice;
+
+	srand(static_cast<unsigned int>(time(0))); //seed random number generator
+	for (int i = 0; i < 10; i++)
+	{
+		int enemyChoice = rand() % 3 + 1;
+		cout << enemyChoice << endl;
+	}
+
+	
+
+	/*storyNode* currentNode = new storyNode();
 	currentNode = loadStory();
 	while (currentNode) {
 		clearConsole();
@@ -54,7 +75,7 @@ int main()
 		{
 			cout << "Invalid choice" << endl;
 		}
-	}
+	}*/
 	return 0;
 }
 

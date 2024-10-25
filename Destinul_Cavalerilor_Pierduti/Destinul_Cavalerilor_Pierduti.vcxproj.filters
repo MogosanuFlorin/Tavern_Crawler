@@ -27,16 +27,22 @@
     <ClCompile Include="loadStory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="functionNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="caracter.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="functionNode.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="storyNode.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="caracter.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="loadStory.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="storyNode.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

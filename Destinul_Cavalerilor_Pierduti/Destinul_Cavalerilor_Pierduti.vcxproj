@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="caracter.cpp" />
+    <ClCompile Include="functionNode.cpp" />
     <ClCompile Include="loadStory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="storyNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="caracter.h" />
+    <ClInclude Include="functionNode.h" />
     <ClInclude Include="loadStory.h" />
     <ClInclude Include="storyNode.h" />
   </ItemGroup>
