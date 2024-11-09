@@ -1,6 +1,4 @@
 #pragma once
-
-
 class caracter {
 public:
 	caracter();
@@ -13,5 +11,4 @@ private:
 	int hp;
 	int gold;
 	int damage;
-
 };

@@ -1,81 +1,45 @@
 #include <iostream>
-#include <string>
-#include <cstdlib>
-#include <ctime> // temp
-#include "storyNode.h"
 #include "loadStory.h"
+#include "Node.h"
+#include "utility.h"
 using namespace std;
-
-
-
-void clearConsole() {
-#ifdef _WIN32
-	system("cls");
-#else
-	system("clear");
-#endif
-}
-
-
 int main()
 {
-	/*int choice;
-	cout << "Destinul Cavalerilor Pierduti" << endl;
-	cout << "Apasa '1' pentru a incepe jocul" << endl;
+	int choice;
+	cout << "TavernCrawler DEMO" << endl;
+	cout << "Press '1' to start the game" << endl;
 	cin >> choice;
 	if (choice == 1)
 	{
-		cout << "Incepe jocul" << endl;
+		cout << "The game starts" << endl;
 	}
 	else
 	{
 		return 0;
-	}*/
-
-
-
-	int viataPlayer = 100;
-	int viataInamic = 100;
-	string s = "";
-	s += "Your HP: " + to_string(viataPlayer) + "												Enemy HP: " + to_string(viataInamic);
-	cout << s << endl << endl;
-	s = "Choose your attack:\n1. Rock\n2. Paper\n3. Scissors\nChoose an option: ";
-	cout << s;
-	int choice;
-	cin >> choice;
-
-	srand(static_cast<unsigned int>(time(0))); //seed random number generator
-	for (int i = 0; i < 10; i++)
-	{
-		int enemyChoice = rand() % 3 + 1;
-		cout << enemyChoice << endl;
 	}
-
-	
-
-	/*storyNode* currentNode = new storyNode();
+	clear();
+	string s = "It's last call at The Hub-And-Spoke Tavern. A dwarf crawls up on a barstool and calls for one more round of ale. In the corner, a game of darts goes very wrong. Someone, somewhere, sings loudly off-key. Someone somewhere else screams at him to shut the hell up. The last of the desperate lovers shrug and pair off: ''I suppose you'll have to do...''\n\nAs for you? You are very drunk.\n\nThe barroom cants back and forth around you. The stench of pipe weed fills up your nostrils. You stumble through the crowd... and slam right into a soldier. He's clad in tarnished silver armor and the rust-red crest of the queen. His beer goes spilling all over him. He glares at you, lip curling into a sneer.";
+	cout << s << endl;
+	waitForKeyPress();
+	Node* currentNode = new Node();
 	currentNode = loadStory();
 	while (currentNode) {
-		clearConsole();
-		cout << currentNode->story << endl;
-		cout << currentNode->option1 << endl;
-		cout << currentNode->option2 << endl;
-		int choice;
-		cout << "Choose an option: ";
-		cin >> choice;
-		if (choice == 1)
-		{
-			currentNode = currentNode->nextNode1;
+		clear();
+		if (currentNode->getFunctionID() == 0) {
+			int choice;
+			choice = currentNode->printStory();
+			if (choice == 1) {
+				currentNode = currentNode->getNextNode(1);
+			}
+			else {
+				currentNode = currentNode->getNextNode(2);
+			}
 		}
-		else if (choice == 2)
-		{
-			currentNode = currentNode->nextNode2;
+		else {
+			currentNode->callFunction();
+			currentNode = currentNode->getNextNode(1);
 		}
-		else
-		{
-			cout << "Invalid choice" << endl;
-		}
-	}*/
+	}
 	return 0;
 }
 

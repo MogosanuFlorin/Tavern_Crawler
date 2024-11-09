@@ -5,9 +5,9 @@ caracter::caracter()
 {
 	this->hp = 100;
 	this->gold = 0;
-	this->damage = 10;
+	this->damage = 5;
 }
-\
+
 void caracter::setHp(int hp)
 {
 	this->hp = hp;

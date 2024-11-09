@@ -1,3 +1,3 @@
 #pragma once
-#include "storyNode.h"
-storyNode* loadStory();
+#include "Node.h"
+Node* loadStory();
