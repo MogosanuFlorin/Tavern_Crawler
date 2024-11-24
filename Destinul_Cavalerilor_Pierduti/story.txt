@@ -1,0 +1,156 @@
+start talkHimInCircles punchHimInTheFace null
+A hush falls over the bar. Everyone is watching. He steps towards you... putting up his dukes. You're what he's been looking for all night: an excuse to get his knuckles bloody.
+What do you do?
+end
+Talk him in circles
+Punch him in the face
+
+talkHimInCircles iAmAnEmissary iAmSorry null
+Now that you're getting a proper look at the guy... you realize he's a soldier. A soldier bearing the rust-red crest of the queen on his chest.\nYou've pissed off a soldier of the Nagata Hatta: the queen's right hand.\nYou smile and say:\n
+end
+I am an emissary on a secret mission from the queen. Kill me at your peril.
+I am sorry. I'd never think to insult a member of the queen's guard.
+
+punchHimInTheFace sitToTableCombat null CombatAction
+You get in a fight with the soldier.
+end
+
+iAmAnEmissary sitToTableHappy null null
+YOU
+'I am an emissary on a secret mission from the queen. Kill me at your peril.'
+
+This is, of course, a bold-faced lie. But you say it with such conviction that the soldier scrunches up his face, uncertain.
+
+SOLDIER
+'What sort of secret mission?'
+
+YOU
+'If I told you, it wouldn't very well be a secret, would it?'
+
+The soldier considers this and nods, impressed.
+
+SOLDIER
+'It is a rare honor to meet a member of the queen's left hand.'
+
+He claps you on the shoulder.
+
+SOLDIER
+'By her grace.'
+
+YOU
+'In her, all things are possible.'
+
+The soldier pounds his chest. He and the other two soldiers march away into the crowd, hollering for more ale.
+end
+
+iAmSorry getDownOnTheFloor punchHimInTheFace null
+I am sorry. I'd never think to insult a member of the queen's guard.
+
+SOLDIER
+"That's a good start. But your penance must fit the slight. Grovel. Beg forgiveness. Get down on the floor and kiss my boots."
+end
+Get down on the floor and kiss his boots.
+Punch him in the face.
+
+getDownOnTheFloor sitToTableDebase null null
+You lower yourself to the floor. The soldier sticks out his boot, leather and jagged steel, sneering. You taste the cracked old leather as you press your lips to it.
+
+SOLDIER
+"Your slight is forgiven."
+end
+
+sitToTableDebase introductionOfBarnes null null
+You sit down at your table, annoyed you had to debase yourself to get out of the situation.
+end
+
+sitToTableHappy introductionOfBarnes null null
+You sit down at your table, happy to have avoided a nasty fight.
+end
+
+sitToTableCombat introductionOfBarnes null null
+You sit down at your table, trying to catch your breath and nursing some nasty scrapes.
+end
+
+introductionOfBarnes finalDemoNode finalDemoNode null
+A tall, thin man with a thick walrus moustache, wireframe spectacles, and a bowler hat ambles toward your table. He looks completely out of place in the Hub-And-Spoke Tavern at this hour.
+
+He reaches your table and doesn't say anything. Just stands there and scrutinizes.
+
+YOU
+"Something you want?"
+
+MAN IN BOWLER HAT
+"I saw the way you handled those soldiers. They were Nagata Hatta, no? The queen's right hand, they call them. I've seen things turn ugly with them in the past. Usually ends with the other fellow dead. But you handled them. Very sly."
+
+YOU
+"Guess I got lucky."
+
+MAN IN BOWLER HAT
+"Didn't look like luck had anything to do with it. But if it did... well, let's just say, I have a business proposition for someone who has that kind of luck."
+
+YOU
+"What sort of business?"
+
+MAN IN BOWLER HAT
+"Before I say any more... I like to know a little bit about the people I do business with. What's your name?"
+
+Enter your name << name >>
+
+MAN IN BOWLER HAT
+"Well, << name >>,my name is Barnes. We've got a little problem in Akema. And we need someone to resolve it. Swiftly and discreetly."
+
+YOU
+"What's the problem?"
+
+BARNES:
+"Dragon"
+
+YOU
+"So what do you need me to do?"
+
+BARNES
+"Kill the dragon, obviously. It's made its nest in the caves of Akema's Peak, just to our south."
+end
+This seems dangerous. Taking on a real live dragon?
+This seems cruel. What did the dragon ever do to anyone?
+
+finalDemoNode null null GetGoldAction
+BARNES
+"It's a bastard of a dragon. Terrorizing us for weeks. Burning up the crops in the farmlands outside the village. Swooping down and roaring and sending us all running into our houses. We're one of the last independent villages, beyond the reach of the queen. This dragon is going to destroy us if someone doesn't stop it."
+
+He reaches into his pocket and digs around…
+
+BARNES
+"But... if you're not satisfied that the blasted thing deserves to die yet... I have something I think will help subdue your conscience..."
+
+
+He finally clumsily digs a small burlap sack from his pocket. His shaking hand pitches it on to the table. Gold coins clatter out.
+
+BARNES
+"Ten pieces of gold. Go on. Take it. Just a taste."
+
+BARNES
+"You get that now... and once you've killed the dragon... you get four hundred thousand pieces "
+
+YOU:
+Any other details I should know about?
+
+BARNES
+"Very simple. Cut off the dragon's head and bring it to me to prove you really killed it. Bring it to me straight away at the <not understandable name> Tavern in the village. Don't stop off anywhere else in the village first. Once I've given you your gold, you leave town without a word to anyone."
+
+All those drinks are finally catching up with you. Everything spins. Barnes's voice sounds as if it were coming from very far away.
+
+You:
+"Got it. Bring it to you in the, uh... tavern."
+
+BARNES
+"You'll find it down a little set of stairs in the rough part of town. Follow the back alleys, take a left, a right, keep going forward, then another right, another quick right, a left, then another left, until you see the sign with the owl insignia. Can't miss it! The place is a tad exclusive. You'll need the password to get in. It's <not understandable >. Got it? I'll be waiting for you there in a fortnight's time. Send word if you'll be delayed..."
+
+You nod. The whole room is spinning now. Barnes bids you all adieu.
+
+You retire in your room in the inn.
+end
+
+
+
+

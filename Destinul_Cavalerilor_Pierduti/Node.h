@@ -20,7 +20,5 @@ private:
 	std::vector<std::string> options;
 	std::vector<Node*> nextNodes;
 	NodeAction* action;
-	void getGold();
-	void combat();
 };
 

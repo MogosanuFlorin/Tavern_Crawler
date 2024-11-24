@@ -42,10 +42,11 @@ int Node::printStory() const
 	Display::clear();
 	cout << this->story << endl;
 	int count = 1;
-	for (auto option : this->options)
-	{
-		cout<< count++ << ". " << option << endl;
-	}
+	if (this->options.size() != 0)
+		for (auto option : this->options)
+		{
+			cout<< count++ << ". " << option << endl;
+		}
 	if (this->options.size()!=0)
 	{
 		int choice;
@@ -59,5 +60,8 @@ int Node::printStory() const
 
 Node* Node::getNextNode(int id)
 {
-	return this->nextNodes[id - 1];
+	if (id < 1 || id >= nextNodes.size()+1) {
+		return nullptr;
+	}
+	return nextNodes[id-1];
 }
