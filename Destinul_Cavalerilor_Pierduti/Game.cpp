@@ -1,9 +1,10 @@
 #include "Game.h"
 #include "Player.h"
 #include "Node.h"
-#include "NodeAction.h"
 #include "Enemy.h"
 #include "Display.h"
+#include "GetGoldAction.h"
+#include "CombatAction.h"
 #include <vector>
 #include <iostream>
 #include <unordered_map>

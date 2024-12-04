@@ -1,7 +1,6 @@
-#include "NodeAction.h"
+#include "CombatAction.h"
 #include <iostream>
 #include <string>
-#include "Node.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "Display.h"
@@ -13,7 +12,7 @@ CombatAction::CombatAction(Enemy* enemy)
 	this->enemyGoldDrop = enemy->getGoldDrop();
 }
 
-void CombatAction::execute(Node* node, Player* player){
+void CombatAction::execute(Node* node, Player* player) {
 	int playerHp = player->getHp();
 	int playerDmg = player->getDmg();
 
@@ -78,19 +77,9 @@ void CombatAction::execute(Node* node, Player* player){
 	}
 	else {
 		std::cout << "You won" << std::endl;
-		std::cout << "You gained " << enemyGoldDrop<< "gold." << std::endl;
+		std::cout << "You gained " << enemyGoldDrop << "gold." << std::endl;
 		player->setHp(playerHp);
 		player->addGold(enemyGoldDrop);
 	}
 
-}
-
-GetGoldAction::GetGoldAction(int gold)
-{
-	this->gold = gold;
-}
-
-void GetGoldAction::execute(Node* node, Player* player)
-{
-	player->addGold(this->gold);
 }
