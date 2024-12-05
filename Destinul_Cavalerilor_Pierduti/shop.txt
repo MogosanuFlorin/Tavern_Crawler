@@ -1,0 +1,14 @@
+tavernShop 5 5
+dagger 10
+spear 12
+bow 15
+
+forestShop 5 7
+sword 13
+axe 15
+mace 20
+
+castleShop 5 10
+hammer 25
+halberd 30
+warHammer 45

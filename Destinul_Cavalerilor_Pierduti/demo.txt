@@ -1,0 +1,111 @@
+start talkHimInCircles soldier1 null
+You are a traveler in a strange land. You seek work, but for now you drinking at a tavern. You go to the bar to order another drink.
+On the way you stumble over a soldier's foot. He aproaches you, angry. You're what he's been looking for all night: an excuse to get his knuckles bloody.
+end
+Talk him in circles
+Punch him in the face
+
+talkHimInCircles sitToTableHappy null null
+YOU
+'I am an emissary on a secret mission from the queen. Kill me at your peril.'
+
+This is, of course, a bold-faced lie. But you say it with such conviction that the soldier scrunches up his face, uncertain.
+
+SOLDIER
+'What sort of secret mission?'
+
+YOU
+'If I told you, it wouldn't very well be a secret, would it?'
+
+The soldier considers this and nods, impressed.
+
+SOLDIER
+'It is a rare honor to meet a member of the queen's left hand.'
+
+He claps you on the shoulder.
+
+SOLDIER
+'By her grace.'
+
+YOU
+'In her, all things are possible.'
+
+The soldier pounds his chest. He marches away into the crowd, hollering for more ale.
+end
+
+soldier1 sitToTableCombat null CombatAction
+You get in a fight with the soldier.
+end
+
+sitToTableHappy introductionOfBarnes null null
+You sit down at your table, happy to have avoided a nasty fight.
+end
+
+sitToTableCombat introductionOfBarnes null null
+You sit down at your table, trying to catch your breath and nursing some nasty scrapes.
+end
+
+introductionOfBarnes morning null GetGoldAction
+A strange man aproaches you. He is dressed in a long coat and a wide-brimmed hat. He sits down at your table and introduces himself as Barnes.
+
+BARNES:
+I saw you how you handled that soldier. You have a quick wit and a quicker hand. I have a proposition for you. I am a member of the queen's left hand. I have a mission that requires a certain... finesse. Are you interested?
+
+YOU:
+What's the pay?
+
+BARNES:
+More than you can spend in a lifetime.
+
+YOU:
+I'm in. What is the mission?
+
+BARNES:
+There is a dragon who built a nest near the queen's castle. We need you to kill it.
+
+YOU:
+That's it?
+
+BARNES:
+That's it. Here is an advance on your pay. 
+
+(He slides a bag of gold across the table.)
+
+BARNES:
+You will get the rest after you kill the dragon.
+
+Barnes stands up and leaves the tavern. You are left with a bag of gold and a mission to kill a dragon.
+You retire in the inn for the night. The next day you set out to kill the dragon.
+end
+
+morning tavernShop forestEntry null
+You wake up in the inn. You have a mission to kill a dragon. You set out to find the dragon.
+In front of the tavern you find a shop. You can buy weapons and armor from the shop.
+end
+Take a look at the shop's stock.
+Go to the forest.
+
+tavernShop forestEntry null ShopAction
+You enter the shop. You see a variety of weapons for sale.
+end
+
+forestEntry thief1 giveHimTheMoney null
+You enter the forest. Behind a tree is a thief who waits to ambush you.
+
+THIEF
+Give me all your money or i will kill you.
+end
+Fight the thief
+Give him your money
+
+thief1 deepForest null CombatAction
+You get in a fight with the thief.
+end
+
+giveHimTheMoney deepForest null LoseAllMoneyAction
+You gave all your money to the thief to avoid a battle.
+end
+
+deepForest null null null
+You continue your adventure in the deep woods.
+end

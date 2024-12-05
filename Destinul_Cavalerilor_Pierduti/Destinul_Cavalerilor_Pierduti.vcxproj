@@ -132,10 +132,13 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetGoldAction.cpp" />
-    <ClCompile Include="loadStory.cpp" />
+    <ClCompile Include="LoseAllMoneyAction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="ShopAction.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CombatAction.h" />
@@ -144,12 +147,20 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GetGoldAction.h" />
     <ClInclude Include="loadStory.h" />
+    <ClInclude Include="LoseAllMoneyAction.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeAction.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="ShopAction.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="demo.txt" />
+    <Text Include="enemies.txt" />
+    <Text Include="shop.txt" />
     <Text Include="story.txt" />
+    <Text Include="weapon.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

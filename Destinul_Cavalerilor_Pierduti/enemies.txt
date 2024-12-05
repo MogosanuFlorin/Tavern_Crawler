@@ -1,0 +1,4 @@
+soldier1 10 2 5
+thief1 5 1 10
+bear 20 5 0
+dragon 30 10 0

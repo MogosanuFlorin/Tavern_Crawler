@@ -1,4 +1,4 @@
-start talkHimInCircles punchHimInTheFace null
+start talkHimInCircles soldier1 null
 A hush falls over the bar. Everyone is watching. He steps towards you... putting up his dukes. You're what he's been looking for all night: an excuse to get his knuckles bloody.
 What do you do?
 end
@@ -11,7 +11,7 @@ end
 I am an emissary on a secret mission from the queen. Kill me at your peril.
 I am sorry. I'd never think to insult a member of the queen's guard.
 
-punchHimInTheFace sitToTableCombat null CombatAction
+soldier1 sitToTableCombat null CombatAction
 You get in a fight with the soldier.
 end
 
@@ -43,7 +43,7 @@ YOU
 The soldier pounds his chest. He and the other two soldiers march away into the crowd, hollering for more ale.
 end
 
-iAmSorry getDownOnTheFloor punchHimInTheFace null
+iAmSorry getDownOnTheFloor soldier1 null
 I am sorry. I'd never think to insult a member of the queen's guard.
 
 SOLDIER
@@ -114,7 +114,7 @@ end
 This seems dangerous. Taking on a real live dragon?
 This seems cruel. What did the dragon ever do to anyone?
 
-finalDemoNode null null GetGoldAction
+finalDemoNode morning null GetGoldAction
 BARNES
 "It's a bastard of a dragon. Terrorizing us for weeks. Burning up the crops in the farmlands outside the village. Swooping down and roaring and sending us all running into our houses. We're one of the last independent villages, beyond the reach of the queen. This dragon is going to destroy us if someone doesn't stop it."
 
@@ -151,6 +151,17 @@ You nod. The whole room is spinning now. Barnes bids you all adieu.
 You retire in your room in the inn.
 end
 
+morning tavernShop forestEntry null
+You wake up in the inn. You have a mission to kill a dragon. You set out to find the dragon.
+In front of the tavern you find a shop. You can buy weapons and armor from the shop.
+end
+Take a look at the shop's stock.
+Go to the forest.
 
+tavernShop forestEntry null ShopAction
+You enter the shop. You see a variety of weapons for sale.
+end
 
-
+forestEntry null null null
+You enter the forest. The trees are tall and the underbrush is thick. You can hear the sound of a river nearby.
+end

@@ -77,9 +77,9 @@ void CombatAction::execute(Node* node, Player* player) {
 	}
 	else {
 		std::cout << "You won" << std::endl;
-		std::cout << "You gained " << enemyGoldDrop << "gold." << std::endl;
+		std::cout << "You gained " << enemyGoldDrop << " gold." << std::endl;
+		Display::waitForKeyPress();
 		player->setHp(playerHp);
 		player->addGold(enemyGoldDrop);
 	}
-
 }

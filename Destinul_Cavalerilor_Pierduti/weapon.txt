@@ -1,0 +1,9 @@
+dagger 7
+spear 8
+sword 10
+bow 12
+axe 12
+mace 15
+hammer 15
+halberd 20
+warHammer 30

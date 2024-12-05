@@ -49,10 +49,17 @@ int Node::printStory() const
 		}
 	if (this->options.size()!=0)
 	{
-		int choice;
-		cout << endl << "Choice: ";
-		cin >> choice;
-		return choice;
+		while (true)
+		{
+			int choice;
+			cout << endl << "Choice: ";
+			cin >> choice;
+			if (choice >= 1 && choice <= this->options.size())
+			{
+				return choice;
+			}
+			std::cout << "Invalid choice. Please try again." << std::endl;
+		}
 	}
 	Display::waitForKeyPress();
 	return 1;

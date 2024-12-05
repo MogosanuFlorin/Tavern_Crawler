@@ -5,6 +5,8 @@
 #include "Display.h"
 #include "GetGoldAction.h"
 #include "CombatAction.h"
+#include "ShopAction.h"
+#include "LoseAllMoneyAction.h"
 #include <vector>
 #include <iostream>
 #include <unordered_map>
@@ -14,11 +16,16 @@
 Game::Game()
 {
 	this->player = new Player();
+	loadEnemies();
+	loadWeapons();
+	loadShops();
 	this->currentNode = getStartNode();
 }
 
 void Game::run()
 {
+    /*std::cout << currentNode->printStory();
+	Display::waitForKeyPress();*/
 	while (currentNode && player->getHp() > 0) {
 		int choice = currentNode->printStory();
 
@@ -38,7 +45,7 @@ void Game::run()
 
 Node* Game::getStartNode()
 {
-    std::ifstream file("story.txt");
+    std::ifstream file("demo.txt");
     if (!file.is_open()) {
         std::cerr << "Failed to open file: " << "story.txt" << std::endl;
         return nullptr;
@@ -50,6 +57,7 @@ Node* Game::getStartNode()
         std::string nodeName, leftChildName, rightChildName, actionName;
         std::vector<std::string> options;
         std::string option;
+        int gold;
 
         if (!(iss >> nodeName >> leftChildName >> rightChildName >> actionName)) {
             continue;
@@ -88,15 +96,20 @@ Node* Game::getStartNode()
 
         if (!actionName.empty() && actionName != "null") {
 			if (actionName == "GetGoldAction") {
-				node->setAction(new GetGoldAction(10));
+				node->setAction(new GetGoldAction(20));
 			}
 			else if (actionName == "CombatAction") {
-				Enemy* soldier = new Enemy(10, 2, 0);
-				node->setAction(new CombatAction(soldier));
+				node->setAction(new CombatAction(this->enemies[nodeName]));
 			}
+			else if (actionName == "ShopAction") {
+				node->setAction(new ShopAction(this->shops[nodeName]));
+			}
+            else if (actionName == "LoseAllMoneyAction") {
+				node->setAction(new LoseAllMoneyAction());
+            }
         }
 
-       /* std::cout << "Created node: " << nodeName << std::endl;
+        /*std::cout << "Created node: " << nodeName << std::endl;
         std::cout << "Story: " << story << std::endl;
         std::cout << "Options: ";
         for (const auto& opt : options) {
@@ -106,8 +119,94 @@ Node* Game::getStartNode()
         std::cout << "Left Child: " << leftChildName << ", Right Child: " << rightChildName << std::endl;
         Display::waitForKeyPress();*/
     }
-
     file.close();
-    return nodes.empty() ? nullptr : nodes.begin()->second;
+    return nodes.empty() ? nullptr : nodes["start"];
+	
+    
 }
 
+void Game::loadEnemies() {
+    std::ifstream file("enemies.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open file: " << "enemies.txt" << std::endl;
+        return;
+    }
+    std::string line;
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::string enemyName;
+        int hp, dmg, goldDrop;
+        if (!(iss >> enemyName >> hp >> dmg >> goldDrop)) {
+            continue;
+        }
+        enemies[enemyName] = new Enemy(hp, dmg, goldDrop);
+
+		/*std::cout << "Created enemy: " << enemyName << std::endl;
+		std::cout << "HP: " << hp << ", Damage: " << dmg << ", Gold Drop: " << goldDrop << std::endl;
+		Display::waitForKeyPress();*/
+    }
+    file.close();
+}
+
+void Game::loadShops()
+{
+    std::ifstream file("shop.txt");
+	if (!file.is_open()) {
+		std::cerr << "Failed to open file: " << "shop.txt" << std::endl;
+		Display::waitForKeyPress();
+		return;
+	}
+	std::string line;
+    while (std::getline(file, line)) {
+		std::istringstream iss(line);
+		std::string shopName;
+		int potionsStock, potionsPrice;
+		std::pair<int, int> potions;
+        std::vector<std::pair<Weapon*, int>> weapons;
+		std::string weaponName;
+		if (!(iss >> shopName >> potionsStock >> potionsPrice)) continue;
+		potions = std::make_pair(potionsStock, potionsPrice);
+        while (std::getline(file, line) && !line.empty()) {
+            int price;
+            std::istringstream iss(line);
+			if (!(iss >> weaponName >> price)) continue;
+			weapons.push_back(std::make_pair(this->weapons[weaponName], price));
+        }
+
+		this->shops[shopName] = new Shop(potions, weapons);
+        
+		/*std::cout << "Created shop: " << shopName << std::endl;
+		std::cout << "Potions: " << potionsStock << " - " << potionsPrice << " gold/potion" << std::endl;
+		std::cout << "Weapons: " << std::endl;
+        for (auto weapon : weapons) {
+			std::cout << weapon.first->getWeaponName() << " - " << weapon.second << " gold" << std::endl;
+        }
+		Display::waitForKeyPress();*/
+
+    }
+    file.close();
+}
+
+void Game::loadWeapons()
+{
+    std::ifstream file("weapon.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open file: " << "enemies.txt" << std::endl;
+        return;
+    }
+    std::string line;
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+		std::string weaponName;
+		int damage;
+        if (!(iss >> weaponName >> damage)) {
+            continue;
+        }
+		weapons[weaponName] = new Weapon(weaponName, damage);
+
+		/*std::cout << "Created weapon: " << weaponName << std::endl;
+		std::cout << "Damage: " << damage << std::endl;
+		Display::waitForKeyPress();*/
+    }
+    file.close();
+}
