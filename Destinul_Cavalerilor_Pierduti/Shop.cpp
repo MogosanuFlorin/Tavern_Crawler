@@ -6,22 +6,15 @@
 
 Shop::Shop()
 {
-	this->potions = std::make_pair(0, 0);
-	this->weapons = std::vector<std::pair<Weapon*, int>>();
+	items = {};
 }
 
-Shop::Shop(std::pair<int, int> potions, std::vector<std::pair<Weapon*, int>> weapons)
+Shop::Shop(std::vector<ShopItem*> items)
 {
-	this->potions = potions;
-	this->weapons = weapons;
+	this->items = items;
 }
 
-std::pair<int, int> Shop::getPotions()
+std::vector<ShopItem*> Shop::getItems() const
 {
-	return this->potions;
-}
-
-std::vector<std::pair<Weapon*, int>> Shop::getWeapons()
-{
-	return this->weapons;
+	return items;
 }

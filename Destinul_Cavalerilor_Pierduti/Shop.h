@@ -1,16 +1,15 @@
 #pragma once
 #include <vector>
+#include "Potion.h"
 #include "Weapon.h"
+#include "ShopItem.h"
 class Shop
 {
 public:
 	Shop();
-	Shop(std::pair<int, int> potions, std::vector<std::pair<Weapon*, int>> weapons);
-	std::pair<int, int> getPotions();
-	std::vector<std::pair<Weapon*, int>> getWeapons();
-	int potionsHeal = 10;
+	Shop(std::vector<ShopItem*> items);
+	std::vector<ShopItem*>getItems() const;
 private:
-	std::pair<int, int> potions; //first = stock, second = price
-	std::vector<std::pair<Weapon*, int>> weapons; //first = weapon, second = price
+	std::vector<ShopItem*> items;
 };
 

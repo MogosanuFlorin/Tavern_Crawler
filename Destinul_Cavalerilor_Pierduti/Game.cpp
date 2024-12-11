@@ -6,6 +6,10 @@
 #include "GetGoldAction.h"
 #include "CombatAction.h"
 #include "ShopAction.h"
+#include "ShopItem.h"
+#include "Shop.h"
+#include "Weapon.h"
+#include "Potion.h"
 #include "LoseAllMoneyAction.h"
 #include <vector>
 #include <iostream>
@@ -160,20 +164,21 @@ void Game::loadShops()
     while (std::getline(file, line)) {
 		std::istringstream iss(line);
 		std::string shopName;
-		int potionsStock, potionsPrice;
-		std::pair<int, int> potions;
-        std::vector<std::pair<Weapon*, int>> weapons;
+		int potionsStock, potionsPrice, potionHeal;
+        std::vector<ShopItem*> shopItems;
 		std::string weaponName;
-		if (!(iss >> shopName >> potionsStock >> potionsPrice)) continue;
-		potions = std::make_pair(potionsStock, potionsPrice);
+		if (!(iss >> shopName >> potionsStock >> potionsPrice >> potionHeal)) continue;
+		Potion* potions = new Potion(potionHeal, potionsStock, potionsPrice);
+		shopItems.push_back(potions);
         while (std::getline(file, line) && !line.empty()) {
             int price;
             std::istringstream iss(line);
 			if (!(iss >> weaponName >> price)) continue;
-			weapons.push_back(std::make_pair(this->weapons[weaponName], price));
+            weapons[weaponName]->setPrice(price);
+			shopItems.push_back(weapons[weaponName]);
         }
 
-		this->shops[shopName] = new Shop(potions, weapons);
+		this->shops[shopName] = new Shop(shopItems);
         
 		/*std::cout << "Created shop: " << shopName << std::endl;
 		std::cout << "Potions: " << potionsStock << " - " << potionsPrice << " gold/potion" << std::endl;
@@ -202,7 +207,7 @@ void Game::loadWeapons()
         if (!(iss >> weaponName >> damage)) {
             continue;
         }
-		weapons[weaponName] = new Weapon(weaponName, damage);
+		weapons[weaponName] = new Weapon(weaponName, damage, 1, 0);
 
 		/*std::cout << "Created weapon: " << weaponName << std::endl;
 		std::cout << "Damage: " << damage << std::endl;

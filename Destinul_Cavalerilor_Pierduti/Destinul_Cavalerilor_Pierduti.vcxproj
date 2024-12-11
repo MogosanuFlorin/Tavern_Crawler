@@ -136,8 +136,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="ShopAction.cpp" />
+    <ClCompile Include="ShopItem.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,8 +153,10 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeAction.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Potion.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="ShopAction.h" />
+    <ClInclude Include="ShopItem.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
-class Weapon
+#include "ShopItem.h"
+class Weapon : public ShopItem
 {
 public:
-	Weapon();
-	Weapon(std::string weaponName, int damage);
-	void setWeaponName(std::string weaponName);
-	std::string getWeaponName();
-	void setDamage(int damage);
-	int getDamage();
+    Weapon();
+    Weapon(std::string weaponName, int damage, int stock, int price);
+    void setWeaponName(std::string weaponName);
+    std::string getWeaponName() const;
+    void setDamage(int damage);
+    int getDamage() const;
 
 private:
-	std::string weaponName;
-	int damage;
+    std::string weaponName;
+    int damage;
 };
 
